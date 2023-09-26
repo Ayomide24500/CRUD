@@ -1,6 +1,6 @@
 import http, { ServerResponse, IncomingMessage } from "http";
 
-const port = 3000;
+const port = 5000;
 interface iMassege {
   message: string;
   data: null | [] | {}[];
@@ -100,7 +100,6 @@ const Server = http.createServer(
             resp.end();
           } else {
             const updateusername = build.name;
-
             Data = Data.map((user: any) => {
               if (user?.id === datavalue) {
                 return {
@@ -184,7 +183,7 @@ const Server = http.createServer(
                       // Status = 404
                     }else{
                       Data = Data.map((el: any) => {
-                         if(el?.id === deleted){
+                         if(el?.id!== deleted){
                           return el = null;
                          }
                          return el;
